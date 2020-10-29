@@ -26,12 +26,7 @@ def eval_metrics(actual, pred):
 
 if __name__ == "__main__":
     mlflow.set_tracking_uri("http://localhost:5000")
-    mlflow.get_run('cf6a73efa72441d292e42ac49b7a8eab')
-    mlflow.end_run()
-    mlflow.end_run()
-    mlflow.end_run()
-    mlflow.end_run()
-    mlflow.end_run()
+
     
     warnings.filterwarnings("ignore")
     np.random.seed(40)
@@ -64,7 +59,7 @@ if __name__ == "__main__":
     print("  RMSE: %s" % rmse)
     print("  MAE: %s" % mae)
     print("  R2: %s" % r2)
-
+    mlflow.start_run()
     mlflow.log_param("alpha", alpha)
     mlflow.log_param("l1_ratio", l1_ratio)
     mlflow.log_metric("rmse", rmse)
