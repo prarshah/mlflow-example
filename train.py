@@ -44,6 +44,7 @@ if __name__ == "__main__":
     alpha = float(sys.argv[1]) if len(sys.argv) > 1 else 0.5
     l1_ratio = float(sys.argv[2]) if len(sys.argv) > 2 else 0.5
     mlflow.set_tracking_uri("http://localhost:5000")
+    mlflow.end_run()
     mlflow.set_experiment("git_1")
     mlflow.end_run()
     with mlflow.start_run():
