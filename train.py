@@ -31,6 +31,7 @@ if __name__ == "__main__":
     mlflow.end_run()
     mlflow.end_run()
     mlflow.end_run()
+    mlfloe.start_run("abc")
     warnings.filterwarnings("ignore")
     np.random.seed(40)
 
