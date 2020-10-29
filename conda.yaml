@@ -1,5 +1,6 @@
 name: tutorial
 channels:
+  - python==3.8.5
   - defaults
 dependencies:
   - numpy>=1.14.3
