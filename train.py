@@ -25,6 +25,7 @@ def eval_metrics(actual, pred):
 
 
 if __name__ == "__main__":
+    mlflow.set_tracking_uri("http://localhost:5000")
     warnings.filterwarnings("ignore")
     np.random.seed(40)
 
@@ -43,7 +44,8 @@ if __name__ == "__main__":
 
     alpha = float(sys.argv[1]) if len(sys.argv) > 1 else 0.5
     l1_ratio = float(sys.argv[2]) if len(sys.argv) > 2 else 0.5
-    mlflow.set_tracking_uri("http://0.0.0.0:5000")
+    mlflow.create_experiment("fork")
+    
     
     lr = ElasticNet(alpha=alpha, l1_ratio=l1_ratio, random_state=42)
     lr.fit(train_x, train_y)
@@ -51,7 +53,7 @@ if __name__ == "__main__":
     predicted_qualities = lr.predict(test_x)
 
     (rmse, mae, r2) = eval_metrics(test_y, predicted_qualities)
-
+    mlflow.start_run("a")
     print("Elasticnet model (alpha=%f, l1_ratio=%f):" % (alpha, l1_ratio))
     print("  RMSE: %s" % rmse)
     print("  MAE: %s" % mae)
