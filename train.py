@@ -26,6 +26,11 @@ def eval_metrics(actual, pred):
 
 if __name__ == "__main__":
     mlflow.set_tracking_uri("http://localhost:5000")
+    mlflow.end_run()
+    mlflow.end_run()
+    mlflow.end_run()
+    mlflow.end_run()
+    mlflow.end_run()
     warnings.filterwarnings("ignore")
     np.random.seed(40)
 
