@@ -25,14 +25,15 @@ def eval_metrics(actual, pred):
 
 
 if __name__ == "__main__":
-   
-    mlflow.end_run()
-    mlflow.end_run()
-    mlflow.end_run()
-    mlflow.end_run()
-    mlflow.end_run()
     mlflow.set_tracking_uri("http://localhost:5000")
-    mlflow.start_run()
+    mlflow.set_experiment("fork")
+    mlflow.end_run()
+    mlflow.end_run()
+    mlflow.end_run()
+    mlflow.end_run()
+    mlflow.end_run()
+    
+    mlflow.start_run("edited")
     warnings.filterwarnings("ignore")
     np.random.seed(40)
 
