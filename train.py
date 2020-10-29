@@ -26,7 +26,7 @@ def eval_metrics(actual, pred):
 
 if __name__ == "__main__":
     mlflow.set_tracking_uri("http://localhost:5000")
-    mlflow.set_experiment("fork")
+    mlflow.get_run('cf6a73efa72441d292e42ac49b7a8eab')
     mlflow.end_run()
     mlflow.end_run()
     mlflow.end_run()
