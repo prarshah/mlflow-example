@@ -33,7 +33,6 @@ if __name__ == "__main__":
     mlflow.end_run()
     mlflow.end_run()
     
-    mlflow.start_run("edited")
     warnings.filterwarnings("ignore")
     np.random.seed(40)
 
