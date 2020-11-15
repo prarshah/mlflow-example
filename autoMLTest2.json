@@ -1,0 +1,66 @@
+{
+	"pipelineName": "autoMLTest2",
+	"pipelineComponentId": 539,
+	"schedule_execution_id": -1,
+	"type": "Batch",
+	"description": "",
+	"sparkConf": {
+		"spark.dynamicAllocation.enabled": "false",
+		"spark.master": "yarn",
+		"spark.sql.shuffle.partitions": "4",
+		"spark.app.name": "autoMLTest2"
+	},
+	"cleanCheckPointDir": false,
+	"inputs": [
+		{
+			"name": "iris1",
+			"description": null,
+			"type": "TextFile",
+			"aliasName": "iris",
+			"fields": [
+				{
+					"name": "value",
+					"type": "String",
+					"pos": 1,
+					"isNullable": false
+				}
+			],
+			"configuration": {
+				"isIncremental": false,
+				"path": "s3a:///user/iris-str.csv",
+				"format": "text",
+				"isStreaming": false,
+				"componentId": 117,
+				"configurationId": 132
+			}
+		}
+	],
+	"transformer": [
+		{
+			"name": "FilterVal_1605196779565",
+			"type": "FilterVal",
+			"configuration": {
+				"column": "value",
+				"condition": "isNull"
+			}
+		}
+	],
+	"stageHierarchy": [
+		{
+			"stage": "iris1",
+			"type": "Input",
+			"parentStage": [],
+			"actualParent": []
+		},
+		{
+			"stage": "FilterVal_1605196779565",
+			"type": "Transformer",
+			"actualParent": [
+				"iris1"
+			],
+			"parentStage": [
+				"iris1"
+			]
+		}
+	]
+}
